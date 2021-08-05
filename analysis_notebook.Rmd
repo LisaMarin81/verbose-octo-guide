@@ -1,0 +1,68 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+This is my import procedure
+```{r}
+library(readxl)
+url <- "https://github.com/philbowsher/Foundation-of-the-R-Workflow-workshop-2019-09-06/raw/master/Examples/data/ad_treatment.xlsx"
+destfile <- "ad_treatment.xlsx"
+curl::curl_download(url, destfile)
+ad_treatment <- read_excel(destfile)
+
+
+ad_treatment
+```
+
+
+```{r}
+library(tidyverse)
+library(plotly)
+libary(readx1)
+```
+
+
+
+
+
+
+Graph
+
+```{r}
+library(ggplot2)
+library(plotly)
+
+phil <- ggplot(data = diamonds, 
+            aes(x = cut, fill = clarity)) +
+    geom_bar(position = "dodge")
+
+phil
+
+
+ggplotly(phil)
+
+```
+
+
+```{r}
+ad_treatment%>%
+  filter(age>=80L & age<= 85L)%>%
+  filter(mmse >=15 & mmse <=
+           28.8)%>&
+  ggplot()+
+  aes()
+```
+
+
+
+```{r}
+library(ggplot2)
+
+ggplot(ad_treatment) +
+ aes(x = drug_treatment, y = sex, fill = health_status) +
+ geom_boxplot() +
+ scale_fill_hue() +
+ theme_minimal()
+```
+
